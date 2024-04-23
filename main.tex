@@ -1,0 +1,310 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,10.6pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{fontawesome}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-11pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2.5pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2.5pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-7pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Devam Sheth} \\ \vspace{0pt}
+    % \small 602-768-7274 $|$ \href{mailto:devamsheth20@gmail.com}{\underline{dmsheth1@asu.edu}} $|$ 
+    % \href{https://linkedin.com/in/devam-sheth21}{\underline{linkedin.com/in/devam-sheth21}} $|$
+    % \href{https://github.com/devamsheth21}{\underline{github.com/devamsheth21}}
+    \href{https://github.com/devamsheth21}{\raisebox{-0.05\height}\faGithub\ devamsheth21} \ $|$ \ 
+\href{https://www.linkedin.com/in/devam-sheth21/}{\raisebox{-0.05\height}\faLinkedin\ devamsheth21} \ $|$ \ 
+\href{mailto:devamsheth20@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ devamsheth20@gmail.com} \ $|$ \ 
+\href{tel:+16027687274}{\raisebox{-0.05\height}\faMobile \ 602.768.7274} \\
+\end{center}
+
+
+% %-----------OBJECTIVE-----------
+% \section{Summary}
+% Driven Computer Science graduate with expertise in machine learning, NLP, and data analysis. Seeking a challenging role as a Data Scientist or Machine Learning Engineer to leverage cutting-edge technologies and deliver data-driven solutions.
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Machine Learning Research Assistant}{Aug. 2023 -- Present}
+      {Arizona State University,Wu Lab}{Tempe, Arizona}
+      \resumeItemListStart
+        % \resumeItem{Developed a REST API using FastAPI and PostgreSQL to store data from learning management systems}
+        % \resumeItem{Developed a full-stack web application using Flask, React, PostgreSQL and Docker to analyze GitHub data}
+        % \resumeItem{Explored ways to visualize GitHub collaboration in a classroom setting}
+        \resumeItem{Improved Brain MRI white matter segmentation with nn-Unet, achieving \textbf{0.65} mean dice score across 5 folds.}
+        \resumeItem{Collaborated with partners such as the Department of Defense and Mayo Clinic on lab projects and reports.}
+        \resumeItem{Engineered distributed training pipelines and custom data preprocessing for seamless multimodal training.}
+        \resumeItem{Integrated LLMs improving AUC score by \textbf{8\%} for Headache classification method, utilizing  Multimodal models.}
+        \resumeItem{Engineered prompts for clinical notes to enhance text-embeddings from GPT-2 and BERT encoders.}
+        \resumeItem{ Fine-tuned pre-trained CLIP models, resulting in a \textbf{10\%} increase in classification performance on medical data.}
+        \resumeItem{Actively participated in weekly team meetings to discuss project progress and brainstorm innovative solutions.}
+      \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+    \resumeSubheading
+      {Machine Learning Engineer}{May 2023 -- Aug 2023}
+      {Arrow Electronics Inc. (e-Infochips)}{Ahmedabad, India}
+      \resumeItemListStart
+        % \resumeItem{Evaluated models on lowlight datasets and explored Knowledge Distillation for improved latency on edge devices.}
+        % \resumeItem{Trained YOLOv5s for object detection, focusing on real-time detection and deployment on edge devices like Jetson Nano.}
+        % \resumeItem{Collaborated with teams to integrate machine learning models into software applications and contributed to code reviews.}
+        \resumeItem{Developed and deployed computer vision models for object detection, improving product quality by\textbf{ 15\%}.}
+        \resumeItem{Optimized low-light enhancement models, reducing MACs by\textbf{ 82\%} through Neural Architecture Search.}
+        % \resumeItem{Implemented efficient inferencing pipelines for video processing with OpenCV and ffmpeg.}
+        \resumeItem{Optimized deep learning models for real-time inference on edge devices with minimal latency.}
+        \resumeItem{Leveraged Distillation, quantization and pruning techniques to reduce the model size and memory footprint.}
+        \resumeItem{Integrated machine learning pipelines into existing software systems through cross-functional collaboration.}
+        
+       
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Machine Learning Research Assistant}{May 2021 -- May 2022}
+      {Nirma University}{Ahmedabad, India}
+      \resumeItemListStart
+          % \resumeItem{Developed end-to-end pipeline for multi-class bearing fault classification with 98\% accuracy using EfficientNet.}
+          % % \resumeItem{Converted vibration data to images and utilized FFT for novel feature engineering}
+          % \resumeItem{Implemented novel feature engineering by converting vibration data to images and utilizing FFT.}
+          \resumeItem{Developed end-to-end pipeline for bearing fault classification achieving \textbf{98\%} accuracy, utilizing EfficientNet CNNs and novel feature engineering techniques like converting vibration data to images and FFT.}
+          \resumeItem{Implemented Autoencoders with Gaussian noise filters for robust denoising of vibration signals and explored transfer learning by fine-tuning pre-trained CNNs.}
+        % \resumeItem{Explored methods to generate video game dungeons based off of \emph{The Legend of Zelda}}
+        % \resumeItem{Developed a game in Java to test the generated dungeons}
+        % \resumeItem{Contributed 50K+ lines of code to an established codebase via Git}
+        % \resumeItem{Conducted  a human subject study to determine which video game dungeon generation technique is enjoyable}
+        % \resumeItem{Wrote an 8-page paper and gave multiple presentations on-campus}
+        % \resumeItem{Presented virtually to the World Conference on Computational Intelligence}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+\vspace{3pt}
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java, Python, C/C++, SQL (Postgres), JavaScript, Matlab, HTML/CSS, R, Bash} \\
+     \textbf{ML Frameworks}{: PyTorch, HuggingFace, Llama-Index, ONNX, Keras, TensorFlow, TensorRT} \\
+     \textbf{Developer Tools}{: Git, AWS, Google Cloud Platform, VS Code, PyCharm, Linux, Jira, Confluence} \\
+     \textbf{Libraries}{: Transformers, Albumentations, OpenCV, Scikit-learn, Pillow, Seaborn, Pandas, NumPy, Matplotlib, OpenAI}
+    }}
+ \end{itemize}
+\vspace{-9pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Arizona State University}{Aug. 2022 -- May 2024}
+      {Master of Science in Computer Science, \textbf{GPA: 4.0/4.0}}{Tempe, Arizona}
+    \resumeItem{\textbf{Courses :} {Machine Learning, Natural Language Processing, Data Processing at Scale, Data Visualization}}
+    
+    \resumeSubheading
+      {Nirma University}{July. 2018 -- May 2022}
+      {Bachelor of Technology in Computer Engineering, Mechanical Engineering, \textbf{GPA: 7.95/10.0}}{Ahmedabad, India}
+  \resumeSubHeadingListEnd
+\vspace{5.5pt}
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      % \resumeProjectHeading
+      %     {\textbf{Gitlytics} $|$ \emph{Python, Flask, React, PostgreSQL, Docker}}{June 2020 -- Present}
+      %     \resumeItemListStart
+      %       \resumeItem{Developed a full-stack web application using with Flask serving a REST API with React as the frontend}
+      %       \resumeItem{Implemented GitHub OAuth to get data from user’s repositories}
+      %       \resumeItem{Visualized GitHub data to show collaboration}
+      %       \resumeItem{Used Celery and Redis for asynchronous tasks}
+      %     \resumeItemListEnd
+      % \resumeProjectHeading
+      %     {\textbf{Simple Paintball} $|$ \emph{Spigot API, Java, Maven, TravisCI, Git}}{May 2018 -- May 2020}
+      %     \resumeItemListStart
+      %       \resumeItem{Developed a Minecraft server plugin to entertain kids during free time for a previous job}
+      %       \resumeItem{Published plugin to websites gaining 2K+ downloads and an average 4.5/5-star review}
+      %       \resumeItem{Implemented continuous delivery using TravisCI to build the plugin upon new a release}
+      %       \resumeItem{Collaborated with Minecraft server administrators to suggest features and get feedback about the plugin}
+      %     \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\href{https://github.com/devamsheth21/MLLM-hallucination-evaluation} {\textbf{Hallucination Evaluation}} \faGithub $|$ \emph{LLMs, Hugging-Face, NLP, HPC Clusters, Git }}{Oct 2023}
+        \resumeItemListStart
+            \resumeItem{Led a team in evaluating MLLMs like InstructBLIP and Open-Flamingo on hallucination detection and evaluation.}
+            \resumeItem{Utilized HPC clusters (Slurm) for GPU-accelerated experiments in inferencing LLMs and MLLMs for evaluation.\@}
+            \resumeItem{Developed an end-to-end pipeline covering CLIP-score filtering, Q\&A generation with Llama, and MLLM output generation.\@}
+            \resumeItem{Configured Python environments for seamless execution within the pipeline, ensuring compatibility and efficiency.}
+        \resumeItemListEnd
+    \resumeProjectHeading
+        {\href{https://devamsheth21.github.io/Vast-MC2-2021-Data-Visualization-Project/}{\textbf{Visualization Dashboard}} \faGithub  $|$ \emph{Pandas, JavaScript, HTML, CSS, D3.js, UI/UX Design}}{March 2023}
+        \resumeItemListStart
+            \resumeItem{Designed and developed an interactive data visualization system for easy analysis of complex spatio-temporal data.}
+            
+            \resumeItem{Preprocessed data and developed novel visualization approaches like a circular Ring Chart using Python and D3.js.}
+            
+            \resumeItem{Implemented interactive features, filters and clickable legend with D3.js and HTML for user-friendly  data exploration.}
+        
+        \resumeItemListEnd
+    \resumeProjectHeading
+        {\href{https://devamsheth21.github.io/NASA-Exoplanets-Visualization-and-Clustering/}{\textbf{Exoplanet Visualization and Clustering}}  \faGithub $|$ \emph{NumPy, Scikit-Learn, JavaScript, HTML, CSS}}{March 2023}
+        
+        \resumeItemListStart
+        
+        \resumeItem{Created an innovative visualization dashboard to showcase NASA's Exoplanets dataset, enabling interactive exploration.}
+        
+        \resumeItem{Employed clustering algorithms to group \textbf{5k} exoplanets by distance, enhancing user engagement with filters and buttons.}
+        
+        \resumeItemListEnd
+        \resumeProjectHeading
+        {\textbf{Galaxy Classification}  \faGithub $|$ \emph{Python, TensorFlow, Keras}}{May 2023}
+        
+        \resumeItemListStart
+        
+        \resumeItem{Developed Galaxy Classifier with VGG-16, achieving \textbf{83\%} accuracy (SDSS Dataset) and\textbf{ 78\%} accuracy (Decals Dataset).}
+        
+        \resumeItem{Conducted ablation studies on pretrained models, preprocessing, and feature extraction to optimize accuracy and train time.\@}
+        
+        \resumeItemListEnd
+        \resumeProjectHeading
+        {\href{https://github.com/devamsheth21/GUI_DiffusionEqn_python}{\textbf{2D Heat Flow Solver Interface}} \faGithub $|$ \emph{Algorithms, Matplotlib, Tkinter}}{May 2020}
+        
+        \resumeItemListStart
+        
+        \resumeItem{Used Tkinter library to build a GUI using frames and labels. Developed python code for 2D Heat equation using Computational Fluid dynamics Algorithms.}
+        \resumeItem{Used Matplotlib to create animation GIF adding each plot of output i.e., at each time step.}
+        
+        \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+
+
+%
+\vspace{4pt}
+\section{Achievements and Certificates}
+\begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Invited to join IEEE Eta Kappa Nu's ASU Chapter (Honors Society of IEEE)}{ in Fall 2023 } \\
+     \textbf{Graduate Fellowship Scholarship awarded}{ in Fall 2023 by Arizona State University.} \\
+     \textbf{Fundamentals of Deep Learning }{certification from NVIDIA.} \\
+     \textbf{Building Transformer-Based Natural Language Processing Applications }{certification from NVIDIA.}
+    }}
+\end{itemize}
+
+%-------------------------------------------
+\end{document}
