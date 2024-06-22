@@ -1,1 +1,1 @@
-![](https://github.com/Zjjc123/resume/blob/main/resume.png)
+![](https://github.com/devamsheth21/Devam-Sheth-Resume/blob/main/resume.png)
