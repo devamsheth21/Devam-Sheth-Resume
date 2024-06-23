@@ -1,28 +1,29 @@
-name: Release Compiled PDF 
+name: Compile LaTeX to PDF
+
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  build_latex:
+  build:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Get current date
-        id: date
-        run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-    
-      - name: Set up Git repository
-        uses: actions/checkout@v4
-        
-      - name: Compile
-        uses: xu-cheng/latex-action@v3
+      - name: Setup TeXLive
+        uses: dante-ev/texlive-action@v1
         with:
-          root_file: main.tex
+          packages: full
 
-      - name: Release
-        uses: softprops/action-gh-release@v2
+      - name: Compile LaTeX document
+        run: |
+          pdflatex -interaction=nonstopmode -output-directory=output main.tex
+
+      - name: Upload PDF to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          tag_name: ${{ env.NOW }}
-          files: ./main.pdf
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
