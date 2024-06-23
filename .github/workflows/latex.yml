@@ -13,16 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup TeXLive
-        uses: dante-ev/texlive-action@v1
-        with:
-          packages: full
+      - name: Set up TeXLive
+        run: sudo apt-get install -y texlive-full
 
       - name: Compile LaTeX document
         run: |
+          mkdir output
           pdflatex -interaction=nonstopmode -output-directory=output main.tex
 
-      - name: Upload PDF to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
