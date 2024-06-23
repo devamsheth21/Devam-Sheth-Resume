@@ -19,7 +19,7 @@ jobs:
       - name: Compile
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: resume.tex
+          root_file: main.tex
 
       - name: Release
         uses: softprops/action-gh-release@v2
