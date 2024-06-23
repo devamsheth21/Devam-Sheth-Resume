@@ -1,45 +1,35 @@
-name: Build LaTeX document
+name: Compile LaTeX and Update PDF
 
 on:
   push:
     branches:
-      - main  # Change this to your default branch
+      - main
   pull_request:
     branches:
-      - main  # Change this to your default branch
+      - main
 
 jobs:
-  build:
+  build_latex:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Set up Git repository
+        uses: actions/checkout@v2
 
-    - name: Install LaTeX and dependencies
-      run: |
-        sudo apt-get update && sudo apt-get install -y \
-          texlive \
-          texlive-latex-extra \
-          latexmk
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
 
-    - name: Set up LaTeX
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: main.tex
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v2
+        with:
+          name: PDF
+          path: main.pdf
 
-    - name: Compile LaTeX document
-      run: latexmk -pdf -interaction=nonstopmode -file-line-error main.tex
-
-    - name: Move PDF to root
-      run: mv main.pdf main.pdf
-
-    - name: Commit and push the PDF
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add main.pdf
-        git commit -m 'Update PDF'
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add main.pdf
+          git commit -m "Update PDF" || echo "No changes to commit"
+          git push
