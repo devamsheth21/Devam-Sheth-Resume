@@ -1,4 +1,4 @@
-name: Release Compiled PDF 
+name: Compile and Commit PDF
 
 on:
   push:
@@ -8,24 +8,22 @@ on:
 jobs:
   build_latex:
     runs-on: ubuntu-latest
-    steps:
-      - name: Get current date
-        id: date
-        run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
-      - name: Set up Git repository
+    steps:
+      - name: Check out repository
         uses: actions/checkout@v2
-        
-      - name: Compile
+
+      - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
 
-      - name: Verify PDF file
-        run: ls -l *.pdf
-
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.NOW }}
-          files: ./main.pdf
+      - name: Commit PDF
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add main.pdf
+          git commit -m "Update compiled PDF"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
