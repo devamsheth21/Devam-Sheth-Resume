@@ -18,13 +18,13 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: main.tex
+          root_file: main5.0.tex
 
       - name: Upload PDF file
         uses: actions/upload-artifact@v2
         with:
           name: PDF
-          path: main.pdf
+          path: main5.0.pdf
 
       - name: Commit changes
         run: |

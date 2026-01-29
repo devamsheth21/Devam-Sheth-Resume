@@ -1,0 +1,211 @@
+\documentclass[letterpaper,10.6pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{fontawesome}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-11pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2.5pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2.5pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-7pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+
+\begin{center}
+    \textbf{\Huge \scshape Devam Sheth} \\ \vspace{0pt}
+    \href{https://github.com/devamsheth21}{\raisebox{-0.05\height}\faGithub\ devamsheth21} \ $|$ \ 
+\href{https://www.linkedin.com/in/devam-sheth21/}{\raisebox{-0.05\height}\faLinkedin\ devamsheth21} \ $|$ \ 
+\href{mailto:devamsheth20@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ devamsheth20@gmail.com} \ $|$ \ 
+\href{tel:+16027687274}{\raisebox{-0.05\height}\faMobile \ 602.768.7274} \\
+\end{center}
+
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+    {Software Development Engineer (SDE)}{Mar. 2025 -- Present}
+    {Amazon Web Services (AWS) -- Bedrock Data Automation}{Bellevue, Washington}
+        \resumeItemListStart
+            \resumeItem{Led cross-functional coordination across \textbf{3+} teams to deliver customer-facing AI features on schedule, managing dependencies across distributed services and deployment pipelines.}
+            % \resumeItem{Deployed PII detection and redaction into production pipelines processing millions of requests monthly for intelligent document processing workflows.}
+            % \resumeItem{Optimized AI inference performance through concurrency tuning, batching, and access pattern analysis, achieving \textbf{20\% latency improvement and 30\% cost reduction}.}
+            \resumeItem{Optimized AI inference workloads through concurrency tuning, batching, and access pattern analysis, achieving \textbf{20\% latency improvement and 30\% cost reduction} while processing millions of monthly requests.}
+            % \resumeItem{Reduced infrastructure costs by \textbf{\$28K/month} through fleet right-sizing and capacity optimization across multiple global regions.}
+            \resumeItem{Led load testing and optimization of ECS-hosted Triton-based RAI service across 7 regions, identifying thread-bound bottlenecks and resource underutilization to achieve \textbf{\$28K/month} in cost savings through fleet rightsizing.}
+            \resumeItem{Improved end-to-end request latency by \textbf{30\%} by redesigning client connection pooling and request concurrency mechanisms.}
+            \resumeItem{Eliminated \textbf{45+ high-severity incidents} by resolving systemic concurrency and race-condition issues in DynamoDB-backed workflows improving system stability under peak loads.}
+            \resumeItem{Built comprehensive monitoring infrastructure with CloudWatch dashboards, custom metrics, and automated fault analysis scripts, reducing MTTD for production issues by \textbf{60\%}.}
+        \resumeItemListEnd
+ \resumeSubheading
+      {Data Science Analyst}{June. 2024 -- Present}
+      {Mayo Clinic (AI \& Informatics)} {Phoenix, Arizona}
+       \resumeItemListStart
+         \resumeItem{Developed Vision-Language Models to enhance diagnostic accuracy with multi-modal medical data.}
+         \resumeItem{Built custom neural architectures using domain-specific pre-trained models and improved interpretability with 3D Grad-CAM.}
+         \resumeItem{Engineered distributed training pipelines with custom data preprocessing for seamless multi-modal training.}
+       \resumeItemListEnd
+    \resumeSubheading
+      {Machine Learning Research Assistant}{Aug. 2023 -- May 2024}
+      {Arizona State University, Wu Lab}{Tempe, Arizona}
+      \resumeItemListStart
+        \resumeItem{Improved Brain MRI white matter segmentation with nn-Unet, achieving \textbf{0.65} mean dice score across 5 folds.}
+        \resumeItem{Engineered distributed training pipelines and custom data preprocessing for seamless multi-modal training.}
+        \resumeItem{Integrated LLMs and fine-tuned CLIP models, improving AUC by \textbf{8\%} for Headache classification and achieving \textbf{10\%} increase in classification performance on medical data.}
+      \resumeItemListEnd
+ \resumeSubheading
+      {Machine Learning Engineer}{May 2023 -- Aug 2023}
+      {Arrow Electronics Inc. (e-Infochips)} {Ahmedabad, India}
+      \resumeItemListStart
+        \resumeItem{Developed and deployed computer vision models for object detection, improving product quality by\textbf{ 15\%}.}
+        \resumeItem{Optimized low-light enhancement models, reducing MACs by\textbf{ 82\%} through Neural Architecture Search.}
+        \resumeItem{Optimized deep learning models for real-time inference on edge devices using distillation, quantization, and pruning.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Machine Learning Research Assistant}{May 2021 -- May 2022}
+      {Nirma University}{Ahmedabad, India}
+      \resumeItemListStart
+          \resumeItem{Developed bearing fault classification pipeline achieving \textbf{98\%} accuracy using EfficientNet CNNs with novel vibration-to-image feature engineering, FFT analysis, and transfer learning techniques.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+\vspace{3pt}
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java, Python, C/C++, SQL (Postgres), JavaScript, TypeScript, HTML/CSS, R, Bash} \\
+     \textbf{ML Frameworks}{: PyTorch, HuggingFace, Llama-Index, LangChain, ONNX, Keras, TensorFlow, TensorRT, vLLM} \\
+     \textbf{Developer Tools}{: Git, AWS (Lambda, ECS, S3, DynamoDB), Docker, Kubernetes, Linux, Jira, Confluence} \\
+     \textbf{Libraries}{: Transformers, Diffusers, FAISS, OpenCV, Scikit-learn, Pillow, Seaborn, Pandas, NumPy, Matplotlib, OpenAI}
+    }}
+ \end{itemize}
+\vspace{-9pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+ \resumeSubheading
+      {Arizona State University}{Aug. 2022 -- May 2024}
+      {Master of Science in Computer Science, \textbf{GPA: 4.0/4.0}} {Tempe, Arizona}
+    \resumeItem{\textbf{Courses :} {Machine Learning, Natural Language Processing, Data Processing at Scale, Data Visualization}}
+    
+    \resumeSubheading
+      {Nirma University}{July. 2018 -- May 2022}
+      {Bachelor of Technology in Computer Engineering, Mechanical Engineering, \textbf{GPA: 7.95/10.0}}{Ahmedabad, India}
+  \resumeSubHeadingListEnd
+\vspace{4pt}
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+        {\href{https://github.com/devamsheth21/MLLM-hallucination-evaluation} {\textbf{Hallucination Evaluation}} \faGithub $|$ \emph{LLMs, Hugging-Face, NLP, HPC Clusters, Git }}{Oct 2023 -- Sep 2023}
+        \resumeItemListStart
+            \resumeItem{Led team evaluating MLLMs (InstructBLIP, Open-Flamingo) for hallucination detection using HPC clusters and developed end-to-end pipeline with CLIP-score filtering and Llama-based Q\&A generation.}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+\vspace{4pt}
+\section{Achievements}
+\begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Invited to join IEEE Eta Kappa Nu's ASU Chapter (Honors Society of IEEE)}{ in Fall 2023 } \\
+     \textbf{Graduate Fellowship Scholarship awarded}{ in Fall 2023 by Arizona State University.}
+    }}
+\end{itemize}
+
+%-------------------------------------------
+\end{document}
