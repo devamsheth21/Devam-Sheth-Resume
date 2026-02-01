@@ -115,7 +115,7 @@
 \section{Experience}
   \resumeSubHeadingListStart
     \resumeSubheading
-    {Software Development Engineer (SDE)}{Mar. 2025 -- Present}
+    {Software Development Engineer (SDE)-AI/ML}{Mar. 2025 -- Present}
     {Amazon Web Services (AWS) -- Bedrock Data Automation}{Bellevue, Washington}
         \resumeItemListStart
             \resumeItem{Led cross-functional coordination across \textbf{3+} teams to deliver customer-facing AI features on schedule, managing dependencies across distributed services and deployment pipelines.}
@@ -132,9 +132,12 @@
       {Data Science Analyst}{June. 2024 -- Mar. 2025}
       {Mayo Clinic (AI \& Informatics)} {Phoenix, Arizona}
        \resumeItemListStart
-         \resumeItem{Developed Vision-Language Models to enhance diagnostic accuracy with multi-modal medical data.}
-         \resumeItem{Built custom neural architectures using domain-specific pre-trained models and improved interpretability with 3D Grad-CAM.}
-         \resumeItem{Engineered distributed training pipelines with custom data preprocessing for seamless multi-modal training.}
+         % \resumeItem{Developed Vision-Language Models to enhance diagnostic accuracy with multi-modal medical data.}
+         \resumeItem{Fine-tuned M3D multi-modal LLM (Llama-7B) on Mayo CT datasets using distributed training (FSDP), improving report generation quality through custom loss functions and architectural enhancements.}
+         \resumeItem{Developed clinical retrieval system using ALBED-SS embeddings for natural language-based patient case matching, enabling physicians to find similar reports with configurable filters (BIRADS, similarity scores) and top-k retrieval.}
+         \resumeItem{Built custom neural architectures using domain-specific pre-trained models (MammoCLIP) and improved interpretability with 3D Grad-CAM and attention visualization}
+         \resumeItem{Designed and implemented distributed training pipelines using PyTorch DDP for large-scale medical imaging datasets, optimizing data loading, preprocessing, and GPU utilization.}
+         % \resumeItem{Engineered multi-modal data preprocessing pipelines handling DICOM images, clinical notes, and structured EHR data for seamless model training.}
        \resumeItemListEnd
     \resumeSubheading
       {Machine Learning Research Assistant}{Aug. 2023 -- May 2024}
@@ -142,14 +145,15 @@
       \resumeItemListStart
         \resumeItem{Improved Brain MRI white matter segmentation with nn-Unet, achieving \textbf{0.65} mean dice score across 5 folds.}
         \resumeItem{Engineered distributed training pipelines and custom data preprocessing for seamless multi-modal training.}
-        \resumeItem{Integrated LLMs and fine-tuned CLIP models, improving AUC by \textbf{8\%} for Headache classification and achieving \textbf{10\%} increase in classification performance on medical data.}
+        \resumeItem{Integrated LLM embeddings (GPT-2, BERT) with clinical notes and fine-tuned CLIP models, improving AUC by \textbf{8\%} for Headache classification and achieving \textbf{10\%} increase in classification performance on medical data.}
       \resumeItemListEnd
  \resumeSubheading
       {Machine Learning Engineer}{May 2023 -- Aug 2023}
       {Arrow Electronics Inc. (e-Infochips)} {Ahmedabad, India}
       \resumeItemListStart
-        \resumeItem{Developed and deployed computer vision models for object detection, improving product quality by\textbf{ 15\%}.}
-        \resumeItem{Optimized low-light enhancement models, reducing MACs by\textbf{ 82\%} through Neural Architecture Search.}
+        \resumeItem{Developed and deployed YOLO-based computer vision models for object detection, improving product quality by\textbf{ 15\%}.}
+        % \resumeItem{Optimized low-light enhancement models, reducing MACs by\textbf{ 82\%} through Neural Architecture Search.}
+        \resumeItem{Optimized low-light image enhancement models using Neural Architecture Search, reducing computational cost by \textbf{82\%} while maintaining image quality metrics (PSNR, SSIM).}
         \resumeItem{Optimized deep learning models for real-time inference on edge devices using distillation, quantization, and pruning.}
     \resumeItemListEnd
 
