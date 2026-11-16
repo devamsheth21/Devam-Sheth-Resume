@@ -36,6 +36,7 @@ on:
 
 permissions:
   contents: write
+  actions: write  # needed to dispatch latex.yml after a sync commit
 
 jobs:
   sync:
