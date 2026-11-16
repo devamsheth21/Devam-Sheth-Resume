@@ -114,17 +114,21 @@
 %-----------EXPERIENCE-----------
 \section{Experience}
   \resumeSubHeadingListStart
-    \resumeSubheading
+ \resumeSubheading
     {Software Development Engineer (SDE)-AI/ML}{Mar. 2025 -- Present}
-    {Amazon Web Services (AWS) -- Bedrock Data Automation}{Bellevue, Washington}
+    {Amazon Web Services (AWS) -- Bedrock Data Automation} {Bellevue, Washington}
         \resumeItemListStart
-            \resumeItem{Led cross-functional coordination across \textbf{3+} teams to deliver customer-facing AI features on schedule, managing dependencies across distributed services and deployment pipelines.}
+            % \resumeItem{Led cross-functional coordination across \textbf{3+} teams to deliver customer-facing PII feature globaly on schedule, managing dependencies across high-traffic distributed services and ML model serving pipelines.}
+            \resumeItem{Architected migration of Responsible AI infrastructure from library-hosted to centralized service, designing public endpoints and coordinating cross-VPC traffic migration with zero downtime, reducing latency and operational costs.}
+            \resumeItem{Designed and optimized PII feature API integration through access pattern analysis and performance tuning, achieving \textbf{30\% p99 latency reduction and 20\% cost improvement} at 400+ TPS.}
+            % \resumeItem{Conducted POC for PII feature API integration, evaluating access patterns and optimizing system design to achieve \textbf{30\% p99 latency reduction and 20\% cost improvement} while maintaining 400+ TPS.}
             % \resumeItem{Deployed PII detection and redaction into production pipelines processing millions of requests monthly for intelligent document processing workflows.}
             % \resumeItem{Optimized AI inference performance through concurrency tuning, batching, and access pattern analysis, achieving \textbf{20\% latency improvement and 30\% cost reduction}.}
-            \resumeItem{Optimized AI inference workloads through concurrency tuning, batching, and access pattern analysis, achieving \textbf{20\% latency improvement and 30\% cost reduction} while processing millions of monthly requests.}
+            % \resumeItem{Optimized AI inference workloads through concurrency tuning, batching, and access pattern analysis, achieving \textbf{20\% latency improvement and 30\% cost reduction} with sub-second p99 latency.}
+            \resumeItem{Optimized AI inference workloads through comprehensive load testing and performance tuning of ECS-hosted Triton services across 7 regions, achieving \textbf{\$28K/month} cost savings through fleet rightsizing and configuration optimization.}
             % \resumeItem{Reduced infrastructure costs by \textbf{\$28K/month} through fleet right-sizing and capacity optimization across multiple global regions.}
-            \resumeItem{Led load testing and optimization of ECS-hosted Triton-based Responsible AI service across 7 regions, identifying thread-bound bottlenecks and resource underutilization to achieve \textbf{\$28K/month} in cost savings through fleet rightsizing.}
-            \resumeItem{Improved end-to-end request latency by \textbf{30\%} by redesigning client connection pooling and request concurrency mechanisms.}
+            % \resumeItem{Led load testing and optimization of ECS-hosted Triton-based Responsible AI service across 7 regions, identifying thread-bound bottlenecks and resource underutilization to achieve \textbf{\$28K/month} in cost savings through fleet rightsizing.}
+            \resumeItem{Improved end-to-end request latency by \textbf{30\%} by redesigning client connection pooling and request concurrency mechanisms,  ensuring high availability and performance for production ML workloads.}
             \resumeItem{Eliminated \textbf{45+ high-severity incidents} by resolving systemic concurrency and race-condition issues in DynamoDB-backed workflows improving system stability under peak loads.}
             \resumeItem{Built comprehensive monitoring infrastructure with CloudWatch dashboards, custom metrics, and automated fault analysis scripts, reducing MTTD for production issues by \textbf{60\%}.}
         \resumeItemListEnd
@@ -153,7 +157,7 @@
       \resumeItemListStart
         \resumeItem{Developed and deployed YOLO-based computer vision models for object detection, improving product quality by\textbf{ 15\%}.}
         % \resumeItem{Optimized low-light enhancement models, reducing MACs by\textbf{ 82\%} through Neural Architecture Search.}
-        \resumeItem{Optimized low-light image enhancement models using Neural Architecture Search, reducing computational cost by \textbf{82\%} while maintaining image quality metrics (PSNR, SSIM).}
+        \resumeItem{Optimized low-light image enhancement models reducing computational cost by \textbf{82\%} while maintaining PSNR and SSIM.}
         \resumeItem{Optimized deep learning models for real-time inference on edge devices using distillation, quantization, and pruning.}
     \resumeItemListEnd
 
@@ -172,7 +176,7 @@
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
      \textbf{Languages}{: Java, Python, C/C++, SQL (Postgres), JavaScript, TypeScript, HTML/CSS, R, Bash} \\
-     \textbf{ML Frameworks}{: PyTorch, HuggingFace, Llama-Index, LangChain, ONNX, Keras, TensorFlow, TensorRT, vLLM} \\
+     \textbf{ML Frameworks}{: PyTorch, HuggingFace, Llama-Index, LangChain, ONNX, Keras, TensorFlow, TensorRT, Triton Server, vLLM} \\
      \textbf{Developer Tools}{: Git, AWS (Lambda, ECS, S3, DynamoDB), Docker, Kubernetes, Linux, Jira, Confluence} \\
      \textbf{Libraries}{: Transformers, Diffusers, FAISS, OpenCV, Scikit-learn, Pillow, Seaborn, Pandas, NumPy, Matplotlib, OpenAI}
     }}
@@ -206,6 +210,7 @@
 \section{Achievements}
 \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
+     \textbf{\href{https://www.nature.com/articles/s41598-024-82308-4}{Published research in Nature Scientific Reports}}{ on Multi-Modal Foundation Models for Medical Imaging (2024)} \\
      \textbf{Invited to join IEEE Eta Kappa Nu's ASU Chapter (Honors Society of IEEE)}{ in Fall 2023 } \\
      \textbf{Graduate Fellowship Scholarship awarded}{ in Fall 2023 by Arizona State University.}
     }}
