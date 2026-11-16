@@ -7,6 +7,10 @@ on:
   pull_request:
     branches:
       - main
+  # Added Nov 15, 2026: bot pushes (e.g. from overleaf-sync.yml, which
+  # commits with GITHUB_TOKEN) do not trigger `push` workflows, so the
+  # sync workflow dispatches this one manually after a sync commit.
+  workflow_dispatch:
 
 jobs:
   build_latex:

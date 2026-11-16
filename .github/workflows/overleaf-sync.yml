@@ -9,8 +9,9 @@
 #
 # Direction: Overleaf is the source of truth. Every 6 hours (or on
 # manual run) it downloads the Overleaf project zip and, if the .tex
-# changed, commits it to main as main5.0.tex. That commit triggers
-# latex.yml, which rebuilds main5.0.pdf for the portfolio link.
+# changed, commits it to main as main5.0.tex, then dispatches latex.yml
+# to rebuild main5.0.pdf for the portfolio link. (A bot push alone does
+# not trigger latex.yml, so the dispatch step is required.)
 #
 # WARNING: do not edit main5.0.tex on GitHub while this is enabled.
 # The next sync run will overwrite GitHub edits with the Overleaf
@@ -68,6 +69,7 @@ jobs:
           find /tmp/overleaf-src -type f | sort
 
       - name: Sync main .tex file only
+        id: sync
         run: |
           set -euo pipefail
           SRC=""
@@ -88,6 +90,7 @@ jobs:
           echo "Using Overleaf source: $SRC"
           if cmp -s "$SRC" main5.0.tex; then
             echo "No changes: main5.0.tex already matches Overleaf."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           cp "$SRC" main5.0.tex
@@ -96,3 +99,17 @@ jobs:
           git add main5.0.tex
           git commit -m "Sync main5.0.tex from Overleaf"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Rebuild PDF from synced .tex
+        if: steps.sync.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Bot pushes do not trigger latex.yml, so dispatch it explicitly.
+          curl -fsSL -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/latex.yml/dispatches" \
+            -d '{"ref":"main"}'
+          echo "Dispatched Compile LaTeX and Update PDF."
