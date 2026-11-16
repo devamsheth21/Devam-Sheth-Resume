@@ -1,0 +1,98 @@
+# Overleaf -> GitHub sync (one-way, free, no third-party action)
+#
+# Why this file exists instead of subhamX/overleaf_sync_with_git:
+# that action's current code does not send the Overleaf cookie at all
+# (its entrypoint.sh curls the zip URL with no Cookie header, and its
+# action.yml does not even declare an OVERLEAF_COOKIE input), so it
+# cannot download a private Overleaf project. This workflow does the
+# same download directly with curl, so the code is auditable here.
+#
+# Direction: Overleaf is the source of truth. Every 6 hours (or on
+# manual run) it downloads the Overleaf project zip and, if the .tex
+# changed, commits it to main as main5.0.tex. That commit triggers
+# latex.yml, which rebuilds main5.0.pdf for the portfolio link.
+#
+# WARNING: do not edit main5.0.tex on GitHub while this is enabled.
+# The next sync run will overwrite GitHub edits with the Overleaf
+# version. Edit in Overleaf only, or pause/disable this workflow first.
+#
+# Required secrets (Settings > Secrets and variables > Actions):
+#   OVERLEAF_PROJECT_ID - the ID in https://www.overleaf.com/project/<id>
+#   OVERLEAF_COOKIE     - the overleaf_session2 cookie value from DevTools
+#                         (Application > Cookies > https://www.overleaf.com).
+#                         Treat it like a password: full Overleaf account
+#                         session, not scoped to one project. It expires
+#                         (Overleaf documents ~5 days; guides report longer)
+#                         and is revoked on logout. Refresh the secret when
+#                         the workflow starts failing with auth errors.
+#                         Never paste it in chat, code, or a commit.
+name: Overleaf Sync
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Download Overleaf project zip
+        env:
+          OVERLEAF_PROJECT_ID: ${{ secrets.OVERLEAF_PROJECT_ID }}
+          OVERLEAF_COOKIE: ${{ secrets.OVERLEAF_COOKIE }}
+        run: |
+          set -euo pipefail
+          if [ -z "${OVERLEAF_PROJECT_ID:-}" ] || [ -z "${OVERLEAF_COOKIE:-}" ]; then
+            echo "Missing secret: set OVERLEAF_PROJECT_ID and OVERLEAF_COOKIE in repo Settings > Secrets and variables > Actions, then re-run."
+            exit 1
+          fi
+          # Send the cookie under both names Overleaf has used
+          # (overleaf_session2 and overleaf.sid); the server ignores the other.
+          curl -fsSL \
+            -H "Cookie: overleaf_session2=${OVERLEAF_COOKIE}; overleaf.sid=${OVERLEAF_COOKIE}" \
+            "https://www.overleaf.com/project/${OVERLEAF_PROJECT_ID}/download/zip" \
+            -o /tmp/overleaf.zip
+          file /tmp/overleaf.zip
+          unzip -t /tmp/overleaf.zip >/dev/null
+          rm -rf /tmp/overleaf-src
+          mkdir -p /tmp/overleaf-src
+          unzip -o -q /tmp/overleaf.zip -d /tmp/overleaf-src
+          echo "Files in Overleaf project:"
+          find /tmp/overleaf-src -type f | sort
+
+      - name: Sync main .tex file only
+        run: |
+          set -euo pipefail
+          SRC=""
+          if [ -f /tmp/overleaf-src/main5.0.tex ]; then
+            SRC=/tmp/overleaf-src/main5.0.tex
+          elif [ -f /tmp/overleaf-src/main.tex ]; then
+            SRC=/tmp/overleaf-src/main.tex
+          else
+            # Fall back to the single top-level .tex file, if there is exactly one.
+            COUNT=$(find /tmp/overleaf-src -maxdepth 1 -name '*.tex' -type f | wc -l)
+            if [ "$COUNT" -eq 1 ]; then
+              SRC=$(find /tmp/overleaf-src -maxdepth 1 -name '*.tex' -type f | head -n 1)
+            else
+              echo "Could not find main5.0.tex or main.tex in the Overleaf zip (found $COUNT top-level .tex files). Listing above; fix the Overleaf project filename and re-run."
+              exit 1
+            fi
+          fi
+          echo "Using Overleaf source: $SRC"
+          if cmp -s "$SRC" main5.0.tex; then
+            echo "No changes: main5.0.tex already matches Overleaf."
+            exit 0
+          fi
+          cp "$SRC" main5.0.tex
+          git config user.name "Overleaf Sync Bot"
+          git config user.email "actions@github.com"
+          git add main5.0.tex
+          git commit -m "Sync main5.0.tex from Overleaf"
+          git push
